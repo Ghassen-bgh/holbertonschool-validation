@@ -1,5 +1,3 @@
-OUTPUT_DIR = dist
-.DEFAULT_GOAL := build
 build:
 	hugo  --buildDrafts
 clean:
