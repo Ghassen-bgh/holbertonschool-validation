@@ -12,8 +12,4 @@ post:	## The "post" target creates a new blog post
 	hugo new posts/$(POST_NAME).md
 	sed -i '/title/c\title: "$(POST_TITLE)"' content/posts/$(POST_NAME).md
 help:	## The "help" target prints a list of available targets and their usage
-	@echo "Available targets:"
-	@echo "  build      Build the Hugo site"
-	@echo "  clean      Clean the build directory"
-	@echo "  post       Create a new blog post"
-	@echo "  help       Print this help message"
+	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
