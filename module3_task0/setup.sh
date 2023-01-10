@@ -1,2 +1,3 @@
 #!/bin/bash
-apt-get update && apt-get install -y git make curl build-essential
+apt-get update && apt-get install -y hugo make
+make build
