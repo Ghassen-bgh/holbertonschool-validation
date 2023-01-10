@@ -4,4 +4,4 @@ clean:	## The "clean" target removes the output directory and all of its content
 	rm -rf dist
 post:	## The "post" target creates a new blog post
 	hugo new posts/$(POST_NAME).md
-	sed -i '/title/c\title: "$(POST_TITLE)"' content/posts/$(POST_NAME).md
+	sed -i 's/title: .*/title: "$(POST_TITLE)"/' content/posts/$(POST_NAME).md
