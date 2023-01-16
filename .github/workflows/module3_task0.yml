@@ -1,8 +1,9 @@
+---
 name: module3_task0
 on:
-  push:
+  push: null
   schedule:
-    - cron: "0 0 1 * *"
+    - cron: 0 0 1 * *
 jobs:
   check_make:
     runs-on: ubuntu-latest
