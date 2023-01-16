@@ -1,0 +1,19 @@
+name: module3_task1
+on:
+  push:
+  schedule:
+    - cron: "0 0 1 * *"
+jobs:
+  check_build:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Install
+        run: |
+          cd module3_task1
+          ./setup.sh
+      - name: Build
+        run: |
+          cd module3_task1
+          make build
