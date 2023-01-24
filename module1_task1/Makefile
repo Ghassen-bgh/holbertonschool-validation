@@ -1,6 +1,6 @@
 Publish=hugo
 build:	## The "build" target builds the Hugo site and generates the static HTML files into the output directory
-	@hugo
+	$(Publish)
 clean:	## The "clean" target removes the output directory and all of its contents
 	rm -rf dist/*
 post:
