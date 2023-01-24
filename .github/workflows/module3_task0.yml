@@ -6,6 +6,7 @@ on:
       - main
   schedule:
     - cron: 0 0 1 * *
+
 jobs:
   module3_task0:
     runs-on: ubuntu-latest
