@@ -1,11 +1,13 @@
 ---
 name: module3_task0
 on:
-  push: null
+  push:
+    branches:
+      - main
   schedule:
     - cron: 0 0 1 * *
 jobs:
-  check_make:
+  module3_task0:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
