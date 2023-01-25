@@ -1,9 +1,16 @@
-build:	## The "build" target builds the Hugo site and generates the static HTML files into the output directory
-	hugo  --buildDrafts
-clean:	## The "clean" target removes the output directory and all of its contents
-	rm -rf dist
-post:	## The "post" target creates a new blog post
-	hugo new posts/$(POST_NAME).md
-	sed -i '/title/c\title: "$(POST_TITLE)"' content/posts/$(POST_NAME).md
-help:	## The "help" target prints a list of available targets and their usage
-	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
+# Define variables
+Publish=hugo
+
+build: ## Builds a new website
+	$(Publish)
+
+clean: ## Remove all files from folder dist
+	rm -r dist/*
+
+post: ## Create new post and using the sed command to modify the contents of a file.
+	$(Publish) new posts/$(POST_NAME).md
+	sed -i 's/title: .*/title: "$(POST_TITLE)"/' content/posts/$(POST_NAME).md
+# Overwrite the content of a text file without generating a new one (option -i)
+
+help: ## Display the list of targets and their usage.
+	cat Makefile | grep '##' | tr -d '##' | head -n -1
