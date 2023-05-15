@@ -1,13 +1,13 @@
-# Define variables
-Publish=hugo
+# Makefile for Go-Hugo website
 
+# Build the website
 build:
-	$(Publish)
-
+	@hugo
+# Clean up the build directory
 clean:
-	rm -r dist/*
+	rm -rf dist/*
 
+# Create a new blog post
 post:
-	$(Publish) new posts/$(POST_NAME).md
+	hugo new posts/$(POST_NAME).md
 	sed -i 's/title: .*/title: "$(POST_TITLE)"/' content/posts/$(POST_NAME).md
-# Overwrite the content of a text file without generating a new one (option -i)
