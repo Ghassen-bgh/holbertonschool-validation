@@ -3,13 +3,13 @@
 BINARY_NAME := awesome-api
 LOG_FILE := awesome-api.log
 
-build:
+build: ## Build the application
 	go build -o $(BINARY_NAME)
 
-run:
+run: ## Run the application
 	nohup ./$(BINARY_NAME) > $(LOG_FILE) 2>&1 &
 
-stop:
+stop: ## Stop the application
 	kill "$(shell pgrep $(BINARY_NAME))"
 
 clean: stop ## Stop the application and delete binary and log file
@@ -20,9 +20,4 @@ test: ## Test the application by making requests
 	curl http://localhost:9999/health
 
 help: ## Print this help message
-	@echo "build:    Compile the source code of the application"
-	@echo "run:      Run the application in the background"
-	@echo "stop:     Stop the running application"
-	@echo "clean:    Stop the application and delete binary and log file"
-	@echo "test:     Test the application by making requests"
-	@echo "help:     Print this help message"
+	@awk 'BEGIN {FS = ":.*##"; printf "Usage: make \033[36m<target>\033[0m\n"} /^[a-zA-Z_-]+:.*?##/ { printf "  \033[36m%-10s\033[0m %s\n", $$1, $$2 } /^##@/ { printf "\n\033[1m%s\033[0m\n", substr($$0, 5) } ' $(MAKEFILE_LIST)
