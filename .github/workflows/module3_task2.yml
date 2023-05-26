@@ -18,7 +18,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Execute the script setup.sh
-        run: ./setup.sh
+        run: |
+        chmod u+x setup.sh
+        ./setup.sh
         working-directory: module3_task2
       - name: Validate Makefile execution make help command
         run: |
