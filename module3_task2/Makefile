@@ -1,4 +1,5 @@
 build: lint ## Build the website
+	@make lint
 	@hugo
 
 clean: ## Clean up the build directory
