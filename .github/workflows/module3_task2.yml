@@ -1,4 +1,3 @@
----
 name: module3_task2
 
 on:
@@ -31,8 +30,3 @@ jobs:
           make package
 
       - name: Archive package
-        if: github.ref == 'refs/heads/main'
-        uses: actions/upload-artifact@v2
-        with:
-          name: awesome-website
-          path: module3_task2/awesome-website.zip
