@@ -16,6 +16,7 @@ jobs:
       - name: Install dependencies
         run: |
           cd module3_task2
+          chmod u+x setup.sh
           ./setup.sh
 
       - name: Build
