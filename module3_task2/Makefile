@@ -17,4 +17,5 @@ package: ## Package the website
 
 lint: ## Run linting
 	@echo "Running lint..."
-	# Add your linting command here
+	@hugo --quiet
+	@echo "Linting complete!"
