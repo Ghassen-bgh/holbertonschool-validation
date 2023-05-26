@@ -1,4 +1,4 @@
-build: ## Build the website
+build: lint ## Build the website
 	@hugo
 
 clean: ## Clean up the build directory
