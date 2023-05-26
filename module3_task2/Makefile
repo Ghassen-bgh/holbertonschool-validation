@@ -1,4 +1,4 @@
-build: ## Build the website
+build: lint ## Build the website
 	@hugo
 
 clean: ## Clean up the build directory
@@ -14,3 +14,6 @@ help: ## Show available targets
 
 package: ## Package the website
 	zip -r awesome-website.zip awesome-api dist/
+
+lint : ## Perform linting
+	golangci-lint run
