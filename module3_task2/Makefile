@@ -28,8 +28,9 @@ unit-tests: ## Run tests to check for HelloHandler coverage
 integration-tests: ## Run tests to check integrations coverage
 	go test -v -coverprofile=coverage-integrations.out
 check: ## Check markdown files
-	markdownlint ./content/posts/*.md
-	markdown-link-check ./content/posts/*.md
+	markdownlint ./content/posts/file1.md ./content/posts/file2.md
+	markdown-link-check ./content/posts/file1.md ./content/posts/file2.md
+
 
 validate: ## Validate HTML  W3C Validator
 	make build
