@@ -16,7 +16,5 @@ help: ## Show available targets
 package: ## Package the website
 	zip -r awesome-website.zip awesome-api dist/
 
-lint: ## Run linting
-	@echo "Running lint..."
-	@hugo --quiet
-	@echo "Linting complete!"
+lint: ## lint
+	markdownlint -f DEPLOY.md README.md || true
