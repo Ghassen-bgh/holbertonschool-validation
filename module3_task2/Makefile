@@ -1,6 +1,4 @@
-## Makefile for Go-Hugo website
-
-build:## Build the website
+build: ## Build the website
 	@hugo
 
 clean: ## Clean up the build directory
@@ -10,9 +8,9 @@ post: ## Create a new blog post
 	hugo new posts/$(POST_NAME).md
 	sed -i 's/title: .*/title: "$(POST_TITLE)"/' content/posts/$(POST_NAME).md
 
-help: ## usage: make help
+help: ## Show available targets
 	@echo "Usage:"
-	cat Makefile | grep '##' | tr -d '##'
+	@awk -F ':|##' '/^[^\t].+?:.*?##/ { printf "\033[36m%-30s\033[0m %s\n", $$1, $$NF }' $(MAKEFILE_LIST)
 
-package:
-    zip -r awesome-website.zip awesome-api dist/
+package: ## Package the website
+	zip -r awesome-website.zip awesome-api dist/
